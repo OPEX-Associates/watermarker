@@ -211,3 +211,52 @@ async function loadWatermarkImage(file: File): Promise<HTMLImageElement> {
     reader.readAsDataURL(file);
   });
 } 
+
+async function processImage(
+  file: File,
+  watermarkType: 'text' | 'image',
+  watermarkContent: string | File,
+  position: string,
+  opacity: number
+): Promise<Blob> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = async (e) => {
+      try {
+        const img = new Image();
+        img.src = e.target?.result as string;
+        await new Promise((res) => { img.onload = res; });
+
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        if (!ctx) {
+          throw new Error('Could not get canvas context');
+        }
+
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0);
+
+        if (watermarkType === 'text') {
+          addTextWatermark(ctx, watermarkContent as string, position, opacity, img.width, img.height);
+        } else {
+          const watermarkImg = await loadWatermarkImage(watermarkContent as File);
+          addImageWatermark(ctx, watermarkImg, position, opacity, img.width, img.height);
+        }
+
+        canvas.toBlob((blob) => {
+          if (blob) {
+            resolve(blob);
+          } else {
+            reject(new Error('Failed to create image blob'));
+          }
+        }, file.type);
+      } catch (error) {
+        reject(error);
+      }
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
