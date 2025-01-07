@@ -4,17 +4,18 @@ export async function addWatermark(
   watermarkContent: string | File,
   position: string,
   opacity: number,
+  size: number,
   onProgress?: (progress: number) => void
 ): Promise<Blob> {
   // For images, report immediate progress since it's a single operation
   if (!file.type.startsWith('video/')) {
     onProgress?.(0);
-    const result = await processImage(file, watermarkType, watermarkContent, position, opacity);
+    const result = await processImage(file, watermarkType, watermarkContent, position, opacity, size);
     onProgress?.(100);
     return result;
   }
   
-  return watermarkVideo(file, watermarkType, watermarkContent, position, opacity, onProgress);
+  return watermarkVideo(file, watermarkType, watermarkContent, position, opacity, size, onProgress);
 }
 
 async function watermarkVideo(
@@ -23,6 +24,7 @@ async function watermarkVideo(
   watermarkContent: string | File,
   position: string,
   opacity: number,
+  size: number,
   onProgress?: (progress: number) => void
 ): Promise<Blob> {
   return new Promise(async (resolve, reject) => {
@@ -81,9 +83,9 @@ async function watermarkVideo(
 
           // Add watermark
           if (watermarkType === 'text') {
-            addTextWatermark(ctx, watermarkContent as string, position, opacity, width, height);
+            addTextWatermark(ctx, watermarkContent as string, position, opacity, width, height, size);
           } else if (watermarkImg) {
-            addImageWatermark(ctx, watermarkImg, position, opacity, width, height);
+            addImageWatermark(ctx, watermarkImg, position, opacity, width, height, size);
           }
 
           lastDrawTime = timestamp;
@@ -116,11 +118,13 @@ function addTextWatermark(
   position: string,
   opacity: number,
   width: number,
-  height: number
+  height: number,
+  size: number
 ) {
   const padding = 20;
   ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
-  ctx.font = `${Math.max(20, width * 0.03)}px Arial`;
+  const fontSize = Math.max(20, Math.min(width * 0.3, height * 0.3) * size);
+  ctx.font = `bold ${fontSize}px Arial`;
   ctx.textBaseline = 'middle';
   ctx.textAlign = 'center';
 
@@ -160,10 +164,13 @@ function addImageWatermark(
   position: string,
   opacity: number,
   width: number,
-  height: number
+  height: number,
+  size: number
 ) {
   const padding = 20;
-  const scale = width * 0.2 / watermarkImg.width;
+  const maxDimension = Math.min(width, height);
+  const maxWatermarkSize = maxDimension * 0.8; // 80% of the smaller dimension
+  const scale = (maxWatermarkSize * size) / Math.max(watermarkImg.width, watermarkImg.height);
   const watermarkWidth = watermarkImg.width * scale;
   const watermarkHeight = watermarkImg.height * scale;
 
@@ -217,12 +224,14 @@ async function processImage(
   watermarkType: 'text' | 'image',
   watermarkContent: string | File,
   position: string,
-  opacity: number
+  opacity: number,
+  size: number
 ): Promise<Blob> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = async (e) => {
       try {
+        // Load main image
         const img = new Image();
         img.src = e.target?.result as string;
         await new Promise((res) => { img.onload = res; });
@@ -239,19 +248,23 @@ async function processImage(
         ctx.drawImage(img, 0, 0);
 
         if (watermarkType === 'text') {
-          addTextWatermark(ctx, watermarkContent as string, position, opacity, img.width, img.height);
-        } else {
-          const watermarkImg = await loadWatermarkImage(watermarkContent as File);
-          addImageWatermark(ctx, watermarkImg, position, opacity, img.width, img.height);
+          addTextWatermark(ctx, watermarkContent as string, position, opacity, img.width, img.height, size);
+        } else if (watermarkContent instanceof File) {
+          // Load watermark image
+          const watermarkImg = await loadWatermarkImage(watermarkContent);
+          addImageWatermark(ctx, watermarkImg, position, opacity, img.width, img.height, size);
         }
 
-        canvas.toBlob((blob) => {
-          if (blob) {
-            resolve(blob);
-          } else {
-            reject(new Error('Failed to create image blob'));
-          }
-        }, file.type);
+        canvas.toBlob(
+          (blob) => {
+            if (blob) {
+              resolve(blob);
+            } else {
+              reject(new Error('Failed to create image blob'));
+            }
+          },
+          file.type || 'image/png'
+        );
       } catch (error) {
         reject(error);
       }

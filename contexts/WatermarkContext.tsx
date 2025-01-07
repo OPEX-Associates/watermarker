@@ -13,6 +13,8 @@ interface WatermarkContextType {
   setPosition: (position: string) => void
   opacity: number
   setOpacity: (opacity: number) => void
+  watermarkSize: number
+  setWatermarkSize: (size: number) => void
 }
 
 const WatermarkContext = createContext<WatermarkContextType | undefined>(undefined)
@@ -23,6 +25,7 @@ export function WatermarkProvider({ children }: { children: React.ReactNode }) {
   const [watermarkType, setWatermarkType] = useState<'text' | 'image'>('text')
   const [position, setPosition] = useState('bottom-right')
   const [opacity, setOpacity] = useState(0.5)
+  const [watermarkSize, setWatermarkSize] = useState(0.5)
 
   return (
     <WatermarkContext.Provider
@@ -37,6 +40,8 @@ export function WatermarkProvider({ children }: { children: React.ReactNode }) {
         setPosition,
         opacity,
         setOpacity,
+        watermarkSize,
+        setWatermarkSize,
       }}
     >
       {children}

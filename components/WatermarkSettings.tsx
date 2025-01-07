@@ -14,7 +14,9 @@ export default function WatermarkSettings() {
     watermarkImage,
     setWatermarkImage,
     watermarkType,
-    setWatermarkType
+    setWatermarkType,
+    watermarkSize,
+    setWatermarkSize
   } = useWatermark()
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -115,6 +117,21 @@ export default function WatermarkSettings() {
               </button>
             ))}
           </div>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Size ({Math.round(watermarkSize * 100)}%)
+          </label>
+          <input
+            type="range"
+            min="0.1"
+            max="1"
+            step="0.1"
+            value={watermarkSize}
+            onChange={(e) => setWatermarkSize(Number(e.target.value))}
+            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-500"
+          />
         </div>
 
         <div>

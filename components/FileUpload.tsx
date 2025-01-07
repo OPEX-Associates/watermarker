@@ -12,7 +12,7 @@ export default function FileUpload() {
   const [processing, setProcessing] = useState(false)
   const [progress, setProgress] = useState<{ [key: string]: number }>({})
   const [previewFile, setPreviewFile] = useState<File | null>(null)
-  const { watermarkText, watermarkImage, watermarkType, position, opacity } = useWatermark()
+  const { watermarkText, watermarkImage, watermarkType, position, opacity, watermarkSize } = useWatermark()
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
     setFiles(prev => [...prev, ...acceptedFiles])
@@ -45,6 +45,7 @@ export default function FileUpload() {
           watermarkType === 'text' ? watermarkText : watermarkImage!,
           position,
           opacity,
+          watermarkSize,
           (progress) => {
             setProgress(prev => ({ ...prev, [file.name]: progress }))
           }

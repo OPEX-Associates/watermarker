@@ -13,7 +13,7 @@ export default function Preview({ file, onClose }: PreviewProps) {
   const previewRef = useRef<HTMLDivElement>(null)
   const [previewUrl, setPreviewUrl] = useState<string>('')
   const [loading, setLoading] = useState(true)
-  const { watermarkText, watermarkImage, watermarkType, position, opacity } = useWatermark()
+  const { watermarkText, watermarkImage, watermarkType, position, opacity, watermarkSize } = useWatermark()
 
   useEffect(() => {
     if (!file) return
@@ -26,7 +26,8 @@ export default function Preview({ file, onClose }: PreviewProps) {
           watermarkType,
           watermarkType === 'text' ? watermarkText : watermarkImage!,
           position,
-          opacity
+          opacity,
+          watermarkSize
         )
         const url = URL.createObjectURL(watermarkedBlob)
         setPreviewUrl(url)
