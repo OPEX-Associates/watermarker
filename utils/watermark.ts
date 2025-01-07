@@ -5,17 +5,18 @@ export async function addWatermark(
   position: string,
   opacity: number,
   size: number,
+  fontFamily: string,
   onProgress?: (progress: number) => void
 ): Promise<Blob> {
   // For images, report immediate progress since it's a single operation
   if (!file.type.startsWith('video/')) {
     onProgress?.(0);
-    const result = await processImage(file, watermarkType, watermarkContent, position, opacity, size);
+    const result = await processImage(file, watermarkType, watermarkContent, position, opacity, size, fontFamily);
     onProgress?.(100);
     return result;
   }
   
-  return watermarkVideo(file, watermarkType, watermarkContent, position, opacity, size, onProgress);
+  return watermarkVideo(file, watermarkType, watermarkContent, position, opacity, size, fontFamily, onProgress);
 }
 
 async function watermarkVideo(
@@ -25,6 +26,7 @@ async function watermarkVideo(
   position: string,
   opacity: number,
   size: number,
+  fontFamily: string,
   onProgress?: (progress: number) => void
 ): Promise<Blob> {
   return new Promise(async (resolve, reject) => {
@@ -83,7 +85,7 @@ async function watermarkVideo(
 
           // Add watermark
           if (watermarkType === 'text') {
-            addTextWatermark(ctx, watermarkContent as string, position, opacity, width, height, size);
+            addTextWatermark(ctx, watermarkContent as string, position, opacity, width, height, size, fontFamily);
           } else if (watermarkImg) {
             addImageWatermark(ctx, watermarkImg, position, opacity, width, height, size);
           }
@@ -119,12 +121,13 @@ function addTextWatermark(
   opacity: number,
   width: number,
   height: number,
-  size: number
+  size: number,
+  fontFamily: string
 ) {
   const padding = 20;
   ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
   const fontSize = Math.max(20, Math.min(width * 0.3, height * 0.3) * size);
-  ctx.font = `bold ${fontSize}px Arial`;
+  ctx.font = `bold ${fontSize}px ${fontFamily}`;
   ctx.textBaseline = 'middle';
   ctx.textAlign = 'center';
 
@@ -225,7 +228,8 @@ async function processImage(
   watermarkContent: string | File,
   position: string,
   opacity: number,
-  size: number
+  size: number,
+  fontFamily: string
 ): Promise<Blob> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -248,7 +252,16 @@ async function processImage(
         ctx.drawImage(img, 0, 0);
 
         if (watermarkType === 'text') {
-          addTextWatermark(ctx, watermarkContent as string, position, opacity, img.width, img.height, size);
+          addTextWatermark(
+            ctx, 
+            watermarkContent as string, 
+            position, 
+            opacity, 
+            img.width, 
+            img.height, 
+            size,
+            fontFamily
+          );
         } else if (watermarkContent instanceof File) {
           // Load watermark image
           const watermarkImg = await loadWatermarkImage(watermarkContent);

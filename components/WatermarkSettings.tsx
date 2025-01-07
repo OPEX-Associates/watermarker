@@ -16,8 +16,18 @@ export default function WatermarkSettings() {
     watermarkType,
     setWatermarkType,
     watermarkSize,
-    setWatermarkSize
+    setWatermarkSize,
+    fontFamily,
+    setFontFamily,
   } = useWatermark()
+
+  const fonts = [
+    { name: 'Arial', value: 'Arial' },
+    { name: 'Times New Roman', value: 'Times New Roman' },
+    { name: 'Monotype Corsiva', value: 'Monotype Corsiva' },
+    { name: 'Dancing Script', value: 'Dancing Script' },
+    { name: 'Playfair Display', value: 'Playfair Display' },
+  ]
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files?.[0]) {
@@ -59,18 +69,40 @@ export default function WatermarkSettings() {
 
       <div className="space-y-4">
         {watermarkType === 'text' ? (
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Watermark Text
-            </label>
-            <input
-              type="text"
-              value={watermarkText}
-              onChange={(e) => setWatermarkText(e.target.value)}
-              className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-shadow"
-              placeholder="Enter watermark text"
-            />
-          </div>
+          <>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Font Family
+              </label>
+              <select
+                value={fontFamily}
+                onChange={(e) => setFontFamily(e.target.value)}
+                className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              >
+                {fonts.map((font) => (
+                  <option 
+                    key={font.value} 
+                    value={font.value}
+                    style={{ fontFamily: font.value }}
+                  >
+                    {font.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Watermark Text
+              </label>
+              <input
+                type="text"
+                value={watermarkText}
+                onChange={(e) => setWatermarkText(e.target.value)}
+                className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-shadow"
+                placeholder="Enter watermark text"
+              />
+            </div>
+          </>
         ) : (
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">

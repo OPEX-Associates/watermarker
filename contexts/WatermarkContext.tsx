@@ -15,6 +15,8 @@ interface WatermarkContextType {
   setOpacity: (opacity: number) => void
   watermarkSize: number
   setWatermarkSize: (size: number) => void
+  fontFamily: string
+  setFontFamily: (font: string) => void
 }
 
 const WatermarkContext = createContext<WatermarkContextType | undefined>(undefined)
@@ -26,6 +28,7 @@ export function WatermarkProvider({ children }: { children: React.ReactNode }) {
   const [position, setPosition] = useState('bottom-right')
   const [opacity, setOpacity] = useState(0.5)
   const [watermarkSize, setWatermarkSize] = useState(0.5)
+  const [fontFamily, setFontFamily] = useState('Arial')
 
   return (
     <WatermarkContext.Provider
@@ -42,6 +45,8 @@ export function WatermarkProvider({ children }: { children: React.ReactNode }) {
         setOpacity,
         watermarkSize,
         setWatermarkSize,
+        fontFamily,
+        setFontFamily,
       }}
     >
       {children}
