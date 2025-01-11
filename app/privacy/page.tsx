@@ -53,7 +53,7 @@ export default function Privacy() {
             <p>If you have questions about this Privacy Policy or our practices, please contact us at:</p>
             <div className="mt-2">
               <p>Email: <a href="mailto:contact@securewatermark.com" className="text-blue-600 hover:text-blue-800">contact@securewatermark.com</a></p>
-              <p>Address: 23 Old Blocks, Birmingham, UK</p>
+              <p>Address: 2 Bridge St, Birmingham B1 2JZ, UK</p>
             </div>
           </section>
 
