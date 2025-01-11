@@ -34,8 +34,8 @@ export default function AdSpace({ position, format = 'horizontal', className = '
       <ins
         className="adsbygoogle"
         style={{ display: 'block' }}
-        data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-        data-ad-slot="XXXXXXXXXX"
+        data-ad-client="ca-pub-3384158839006881"
+        // data-ad-slot="XXXXXXXXXX"
         data-ad-format={format === 'horizontal' ? 'auto' : 'rectangle'}
         data-full-width-responsive="true"
       />
