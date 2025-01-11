@@ -1,0 +1,44 @@
+'use client'
+
+import React, { useEffect } from 'react'
+
+interface AdSpaceProps {
+  position: 'top' | 'sidebar' | 'bottom' | 'in-content'
+  className?: string
+  format?: 'horizontal' | 'vertical' | 'square'
+}
+
+declare global {
+  interface Window {
+    adsbygoogle: any[]
+  }
+}
+
+export default function AdSpace({ position, format = 'horizontal', className = '' }: AdSpaceProps) {
+  useEffect(() => {
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({})
+    } catch (err) {
+      console.error('Error loading ads:', err)
+    }
+  }, [])
+
+  const adSizes = {
+    horizontal: 'min-h-[90px] md:min-h-[120px]',
+    vertical: 'min-h-[600px]',
+    square: 'min-h-[250px]'
+  }
+
+  return (
+    <div className={`ad-space ad-${position} ${adSizes[format]} bg-white/50 backdrop-blur-sm rounded-lg shadow-sm ${className}`}>
+      <ins
+        className="adsbygoogle"
+        style={{ display: 'block' }}
+        data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+        data-ad-slot="XXXXXXXXXX"
+        data-ad-format={format === 'horizontal' ? 'auto' : 'rectangle'}
+        data-full-width-responsive="true"
+      />
+    </div>
+  )
+} 
