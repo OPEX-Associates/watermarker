@@ -51,7 +51,56 @@ export default function Terms() {
             </ul>
           </section>
 
-          {/* Add sections 3-8 here */}
+          <section>
+            <h2 className="text-xl font-semibold mb-3">3. Intellectual Property</h2>
+            <div className="space-y-4">
+              <div>
+                <h3 className="font-medium mb-2">a. Your Content</h3>
+                <p>You retain all rights to any photos, videos, or other content you process using our Service. We do not claim ownership of your content.</p>
+              </div>
+              
+              <div>
+                <h3 className="font-medium mb-2">b. Our Service</h3>
+                <p>The SecureWatermark service, including its design, functionality, and code, is owned by us and protected by copyright and other intellectual property laws.</p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-semibold mb-3">4. User Responsibilities</h2>
+            <p>When using our Service, you are responsible for:</p>
+            <ul className="list-disc pl-6 mt-2 space-y-1">
+              <li>Ensuring you have the right to modify and watermark your content</li>
+              <li>Not processing content that infringes on others' intellectual property rights</li>
+              <li>Using the Service in compliance with applicable laws and regulations</li>
+              <li>Maintaining the security of your device and processed files</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-semibold mb-3">5. Service Availability</h2>
+            <p>While we strive to provide continuous service availability, we do not guarantee that the Service will be available at all times. The Service may be temporarily unavailable due to:</p>
+            <ul className="list-disc pl-6 mt-2 space-y-1">
+              <li>Scheduled maintenance</li>
+              <li>Technical difficulties</li>
+              <li>Forces beyond our control</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-semibold mb-3">6. Disclaimer of Warranties</h2>
+            <p>The Service is provided "as is" and "as available" without warranties of any kind. We disclaim all warranties, whether express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-semibold mb-3">7. Limitation of Liability</h2>
+            <p>To the fullest extent permitted by law, we shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or use, incurred by you or any third party.</p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-semibold mb-3">8. Modifications to Terms</h2>
+            <p>We reserve the right to modify these Terms at any time. If we make material changes, we will notify you by updating the effective date at the top of these Terms. Your continued use of the Service after such changes constitutes acceptance of the new Terms.</p>
+          </section>
 
           <section>
             <h2 className="text-xl font-semibold mb-3">9. Contact Us</h2>

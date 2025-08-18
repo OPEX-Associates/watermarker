@@ -46,7 +46,42 @@ export default function Privacy() {
             <p className="mt-2">We do not use this data for personalized advertising or share it with third parties.</p>
           </section>
 
-          {/* Continue with sections 4-9... */}
+          <section>
+            <h2 className="text-xl font-semibold mb-3">4. Cookies and Tracking</h2>
+            <p>We use Google Analytics cookies to track website usage patterns. These cookies help us understand:</p>
+            <ul className="list-disc pl-6 mt-2 space-y-1">
+              <li>Page views and session duration</li>
+              <li>Geographic location (country/region level only)</li>
+              <li>Device and browser information</li>
+              <li>Traffic sources and referral patterns</li>
+            </ul>
+            <p className="mt-2">You can disable cookies in your browser settings if you prefer not to be tracked.</p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-semibold mb-3">5. Third-Party Services</h2>
+            <p>We use the following third-party services:</p>
+            <ul className="list-disc pl-6 mt-2 space-y-1">
+              <li><strong>Google Analytics:</strong> For website traffic analysis and performance monitoring</li>
+              <li><strong>Google AdSense:</strong> For displaying relevant advertisements to support our free service</li>
+            </ul>
+            <p className="mt-2">These services may collect data according to their own privacy policies. We encourage you to review their privacy practices.</p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-semibold mb-3">6. Data Security</h2>
+            <p>We implement appropriate security measures to protect against unauthorized access, alteration, disclosure, or destruction of information. Since file processing occurs locally, your files are protected by your device's security measures.</p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-semibold mb-3">7. Children's Privacy</h2>
+            <p>Our service is not directed to children under the age of 13. We do not knowingly collect personal information from children under 13. If you become aware that a child has provided us with personal information, please contact us immediately.</p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-semibold mb-3">8. Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the effective date. You are advised to review this Privacy Policy periodically for any changes.</p>
+          </section>
           
           <section>
             <h2 className="text-xl font-semibold mb-3">9. Contact Us</h2>
