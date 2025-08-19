@@ -15,9 +15,9 @@ export const metadata: Metadata = {
   },
   description: 'Free online tool to add watermarks to multiple images and videos at once. Process files securely in your browser.',
   keywords: ['watermark', 'batch processing', 'image watermark', 'video watermark', 'free watermark tool'],
-  authors: [{ name: 'Your Name' }],
-  creator: 'Your Name',
-  publisher: 'Your Company',
+  authors: [{ name: 'SecureWatermark Team' }],
+  creator: 'SecureWatermark',
+  publisher: 'SecureWatermark',
   robots: {
     index: true,
     follow: true,
@@ -25,13 +25,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://your-domain.com',
-    siteName: 'Batch Media Watermarking',
+    url: 'https://securewatermark.com',
+    siteName: 'SecureWatermark',
     title: 'Add Watermarks to Images & Videos Online',
     description: 'Free online tool to add watermarks to multiple images and videos at once',
     images: [
       {
-        url: 'https://your-domain.com/og-image.jpg',
+        url: 'https://securewatermark.com/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Batch Media Watermarking Tool',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Add Watermarks to Images & Videos Online',
     description: 'Free online tool to add watermarks to multiple images and videos at once',
-    images: ['https://your-domain.com/twitter-image.jpg'],
+    images: ['https://securewatermark.com/twitter-card.jpg'],
   },
 }
 
@@ -74,6 +74,26 @@ export default function RootLayout({
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3384158839006881"
           crossOrigin="anonymous"
         />
+        <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "SecureWatermark",
+      "description": "Free online watermarking tool for images and videos",
+      "url": "https://securewatermark.com",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Web Browser",
+      "permissions": "none",
+      "isAccessibleForFree": true,
+      "creator": {
+        "@type": "Organization",
+        "name": "SecureWatermark"
+      }
+    })
+  }}
+/>
       </head>
       <body className={inter.className}>
         <WatermarkProvider>
