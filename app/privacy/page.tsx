@@ -56,6 +56,10 @@ export default function Privacy() {
               <li>Traffic sources and referral patterns</li>
             </ul>
             <p className="mt-2">You can disable cookies in your browser settings if you prefer not to be tracked.</p>
+            <p className="mt-2">
+              <strong>For detailed information about cookies we use, please see our </strong>
+              <a href="/cookies" className="text-blue-600 hover:text-blue-800 underline">Cookie Policy</a>.
+            </p>
           </section>
 
           <section>

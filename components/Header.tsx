@@ -25,8 +25,14 @@ export default function Header() {
             <Link href="/guide" className="text-gray-600 hover:text-blue-600 transition-colors">
               User Guide
             </Link>
+            <Link href="/tutorials" className="text-gray-600 hover:text-blue-600 transition-colors">
+              Tutorials
+            </Link>
             <Link href="/contact" className="text-gray-600 hover:text-blue-600 transition-colors">
               Contact
+            </Link>
+            <Link href="/cookies" className="text-gray-600 hover:text-blue-600 transition-colors">
+              Cookies
             </Link>
             <Link href="/privacy" className="text-gray-600 hover:text-blue-600 transition-colors">
               Privacy

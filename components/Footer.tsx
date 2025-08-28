@@ -24,6 +24,20 @@ export default function Footer() {
             </ul>
           </div>
           <div>
+            <h3 className="font-semibold mb-3">Resources</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a href="/guide" className="text-gray-600 hover:text-gray-900">User Guide</a>
+              </li>
+              <li>
+                <a href="/tutorials" className="text-gray-600 hover:text-gray-900">Tutorials</a>
+              </li>
+              <li>
+                <a href="/blog" className="text-gray-600 hover:text-gray-900">Blog</a>
+              </li>
+            </ul>
+          </div>
+          <div>
             <h3 className="font-semibold mb-3">Contact</h3>
             <p className="text-sm text-gray-600">
               Questions? Reach out at:<br />
