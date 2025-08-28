@@ -35,7 +35,7 @@ export default function LegalAspectsGuide() {
               and the legal power of watermarks.
             </p>
             <div className="flex items-center justify-between text-sm text-gray-500 border-b border-gray-200 pb-6">
-              <span>Published on January 10, 2024</span>
+              <span>Published on January 10, 2025</span>
               <span>15 minute read</span>
             </div>
           </div>

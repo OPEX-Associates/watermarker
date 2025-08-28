@@ -35,7 +35,7 @@ export default function SocialMediaWatermarkingGuide() {
               protection with engagement across all major social platforms.
             </p>
             <div className="flex items-center justify-between text-sm text-gray-500 border-b border-gray-200 pb-6">
-              <span>Published on January 5, 2024</span>
+              <span>Published on January 5, 2025</span>
               <span>8 minute read</span>
             </div>
           </div>

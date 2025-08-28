@@ -35,7 +35,7 @@ export default function VideoWatermarkingGuide() {
               preserve video quality.
             </p>
             <div className="flex items-center justify-between text-sm text-gray-500 border-b border-gray-200 pb-6">
-              <span>Published on January 12, 2024</span>
+              <span>Published on January 12, 2025</span>
               <span>10 minute read</span>
             </div>
           </div>

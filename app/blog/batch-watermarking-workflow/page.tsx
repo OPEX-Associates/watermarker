@@ -35,7 +35,7 @@ export default function BatchWorkflowGuide() {
               media libraries efficiently while maintaining quality and consistency.
             </p>
             <div className="flex items-center justify-between text-sm text-gray-500 border-b border-gray-200 pb-6">
-              <span>Published on January 3, 2024</span>
+              <span>Published on January 3, 2025</span>
               <span>11 minute read</span>
             </div>
           </div>
@@ -82,7 +82,7 @@ export default function BatchWorkflowGuide() {
                 <h4 className="text-lg font-semibold text-blue-800 mb-3">📁 Directory Structure</h4>
                 <div className="bg-gray-800 text-green-400 p-4 rounded font-mono text-sm mb-4">
                   <div>Projects/</div>
-                  <div>├── 2024-01-Client-Wedding/</div>
+                  <div>├── 2025-01-Client-Wedding/</div>
                   <div>│   ├── 01-RAW/</div>
                   <div>│   ├── 02-Processed/</div>
                   <div>│   ├── 03-Client-Proofs/ (watermarked)</div>
@@ -106,15 +106,15 @@ export default function BatchWorkflowGuide() {
                 <div className="space-y-3">
                   <div>
                     <h5 className="font-medium text-gray-800 mb-1">Source Files:</h5>
-                    <p className="text-sm text-gray-600 font-mono bg-gray-100 p-2 rounded">2024-01-15_Wedding_SmithJones_001.jpg</p>
+                    <p className="text-sm text-gray-600 font-mono bg-gray-100 p-2 rounded">2025-01-15_Wedding_SmithJones_001.jpg</p>
                   </div>
                   <div>
                     <h5 className="font-medium text-gray-800 mb-1">Watermarked Proofs:</h5>
-                    <p className="text-sm text-gray-600 font-mono bg-gray-100 p-2 rounded">2024-01-15_Wedding_SmithJones_001_WM.jpg</p>
+                    <p className="text-sm text-gray-600 font-mono bg-gray-100 p-2 rounded">2025-01-15_Wedding_SmithJones_001_WM.jpg</p>
                   </div>
                   <div>
                     <h5 className="font-medium text-gray-800 mb-1">Web Versions:</h5>
-                    <p className="text-sm text-gray-600 font-mono bg-gray-100 p-2 rounded">2024-01-15_Wedding_SmithJones_001_WEB.jpg</p>
+                    <p className="text-sm text-gray-600 font-mono bg-gray-100 p-2 rounded">2025-01-15_Wedding_SmithJones_001_WEB.jpg</p>
                   </div>
                 </div>
                 <ul className="space-y-1 text-gray-700 text-sm mt-3">

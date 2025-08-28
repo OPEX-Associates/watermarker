@@ -35,7 +35,7 @@ export default function InvisibleWatermarkingGuide() {
               The future of content security is invisible.
             </p>
             <div className="flex items-center justify-between text-sm text-gray-500 border-b border-gray-200 pb-6">
-              <span>Published on January 8, 2024</span>
+              <span>Published on January 8, 2025</span>
               <span>14 minute read</span>
             </div>
           </div>
