@@ -1,52 +1,57 @@
 'use client'
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 interface AdSpaceProps {
   position: 'top' | 'sidebar' | 'bottom' | 'in-content'
   className?: string
   format?: 'horizontal' | 'vertical' | 'square'
+  zoneId?: string
 }
 
-declare global {
-  interface Window {
-    adsbygoogle: any[]
-  }
-}
+export default function AdSpace({ 
+  position, 
+  format = 'horizontal', 
+  className = '',
+  zoneId = '175134' 
+}: AdSpaceProps) {
+  const adRef = useRef<HTMLDivElement>(null)
 
-export default function AdSpace({ position, format = 'horizontal', className = '' }: AdSpaceProps) {
   useEffect(() => {
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({})
-    } catch (err) {
-      console.error('Error loading ads:', err)
+    // Load Monetag ads
+    const loadMonetag = () => {
+      if (adRef.current && typeof window !== 'undefined') {
+        // Create unique ad container
+        const adContainer = document.createElement('div')
+        adContainer.id = `monetag-${position}-${Date.now()}`
+        adRef.current.appendChild(adContainer)
+
+        // Load Monetag script if not already loaded
+        if (!document.querySelector(`script[src*="fpyf8.com"]`)) {
+          const script = document.createElement('script')
+          script.src = 'https://fpyf8.com/88/tag.min.js'
+          script.setAttribute('data-zone', zoneId)
+          script.async = true
+          script.setAttribute('data-cfasync', 'false')
+          document.head.appendChild(script)
+        }
+      }
     }
-  }, [])
+
+    loadMonetag()
+  }, [position, zoneId])
 
   const adSizes = {
-    horizontal: 'min-h-[90px] md:min-h-[120px]',
-    vertical: 'min-h-[600px]',
-    square: 'min-h-[250px]'
-  }
-
-  // Ad slot IDs for different positions from AdSense
-  const adSlots = {
-    top: '4059793141',        // Horizontal banner
-    sidebar: '6633985595',    // Vertical Banner (sidebar ad)
-    bottom: '4037927631',     // Bottom banner ad
-    'in-content': '5237143447' // In Content ad
+    horizontal: 'min-h-[90px] md:min-h-[120px] w-full',
+    vertical: 'min-h-[600px] w-full max-w-[300px]',
+    square: 'min-h-[250px] w-full max-w-[300px]'
   }
 
   return (
-    <div className={`ad-space ad-${position} ${adSizes[format]} bg-white/50 backdrop-blur-sm rounded-lg shadow-sm ${className}`}>
-      <ins
-        className="adsbygoogle"
-        style={{ display: 'block' }}
-        data-ad-client="ca-pub-3384158839006881"
-        data-ad-slot={adSlots[position]}
-        data-ad-format={format === 'horizontal' ? 'auto' : 'rectangle'}
-        data-full-width-responsive="true"
-      />
+    <div className={`ad-space ad-${position} ${adSizes[format]} bg-gray-50 rounded-lg shadow-sm flex items-center justify-center ${className}`}>
+      <div ref={adRef} className="w-full h-full flex items-center justify-center">
+        <div className="text-gray-400 text-sm">Advertisement</div>
+      </div>
     </div>
   )
 } 

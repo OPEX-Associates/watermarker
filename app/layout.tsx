@@ -68,12 +68,40 @@ export default function RootLayout({
           `}
         </Script>
         
-        {/* Google AdSense */}
+        {/* Monetag Pop-under Ad */}
+        <Script id="monetag-popunder" strategy="afterInteractive">
+          {`
+            (function(d,z,s){
+              s.src='https://'+d+'/400/'+z;
+              try{
+                (document.body||document.documentElement).appendChild(s)
+              }catch(e){}
+            })('otieu.com',9960951,document.createElement('script'))
+          `}
+        </Script>
+        
+        {/* Monetag Ad Scripts */}
         <Script
+          src="https://fpyf8.com/88/tag.min.js"
+          data-zone="175134"
+          strategy="afterInteractive"
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3384158839006881"
-          crossOrigin="anonymous"
         />
+        
+        {/* Monetag Direct Link Integration */}
+        <Script id="monetag-direct-link" strategy="afterInteractive">
+          {`
+            (function() {
+              var script = document.createElement('script');
+              script.type = 'text/javascript';
+              script.async = true;
+              script.src = 'https://otieu.com/4/9960951';
+              var target = document.getElementsByTagName('script')[0];
+              target.parentNode.insertBefore(script, target);
+            })();
+          `}
+        </Script>
+        
         <script
   type="application/ld+json"
   dangerouslySetInnerHTML={{

@@ -1,12 +1,16 @@
-# ads.txt file for AdSense verification
+# ads.txt file for ad network verification
 # This file allows advertisers to verify authorized sellers of ad inventory
 
-# Google AdSense
+# Google AdSense (keeping for reference)
 google.com, pub-3384158839006881, DIRECT, f08c47fec0942fa0
 
-# Replace pub-XXXXXXXXXXXXXXXXX with your actual AdSense Publisher ID
-# You can find your Publisher ID in your AdSense account under:
-# Account > Account information > Publisher ID
+# Monetag Ad Network
+monetag.com, 9960951, DIRECT
+fenoofaussut.net, 175134, DIRECT
+
+# Additional Monetag domains
+otieu.com, 9960951, DIRECT
+fpyf8.com, 175134, DIRECT
 
 # Additional networks can be added here as needed
 # Format: domain, account_id, relationship_type, certification_authority_id
