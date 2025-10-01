@@ -85,6 +85,7 @@ export default function RootLayout({
           src="https://fpyf8.com/88/tag.min.js"
           data-zone="175134"
           strategy="afterInteractive"
+          data-cfasync="false"
           async
         />
         
