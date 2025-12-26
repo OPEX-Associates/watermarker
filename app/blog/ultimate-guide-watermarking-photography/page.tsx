@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import AdSpace from '@/components/AdSpace'
+import StickyAd from '@/components/StickyAd'
+import NativeAd from '@/components/NativeAd'
 
 export const metadata: Metadata = {
   title: 'The Ultimate Guide to Watermarking Photography in 2025 - SecureWatermark',
@@ -313,11 +315,19 @@ export default function PhotographyWatermarkingGuide() {
           </div>
         </article>
 
+        {/* Native Ad - Related Content */}
+        <div className="mt-8">
+          <NativeAd title="Related Articles You May Like" className="mx-auto" />
+        </div>
+
         {/* Bottom ad */}
         <div className="mt-12">
           <AdSpace position="bottom" format="horizontal" className="mx-auto" />
         </div>
       </div>
+      
+      {/* Sticky Bottom Ad */}
+      <StickyAd position="bottom" />
     </main>
   )
 }

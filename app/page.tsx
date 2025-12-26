@@ -3,13 +3,15 @@ import Link from 'next/link'
 import FileUpload from '@/components/FileUpload'
 import WatermarkSettings from '@/components/WatermarkSettings'
 import AdSpace from '@/components/AdSpace'
+import StickyAd from '@/components/StickyAd'
+import NativeAd from '@/components/NativeAd'
 import { metadata } from './metadata'
 
 export { metadata }
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 p-4 md:p-8">
+    <main className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 p-4 md:p-8 pb-24">
       {/* Subtle top banner ad */}
       <div className="max-w-6xl mx-auto mb-8">
         <AdSpace position="top" format="horizontal" className="mx-auto max-w-3xl" />
@@ -382,14 +384,21 @@ export default function Home() {
           
           {/* Sticky sidebar ad */}
           <aside className="hidden lg:block">
-            <div className="sticky top-4">
+            <div className="sticky top-4 space-y-6">
               <AdSpace 
                 position="sidebar" 
                 format="vertical" 
                 className="bg-white/30" 
               />
+              {/* Native Ad in Sidebar */}
+              <NativeAd title="You May Also Like" className="mt-6" />
             </div>
           </aside>
+        </div>
+
+        {/* Native Ad Section */}
+        <div className="mt-8">
+          <NativeAd title="Recommended For You" className="max-w-3xl mx-auto" />
         </div>
 
         {/* Footer ad */}
@@ -401,6 +410,9 @@ export default function Home() {
           />
         </div>
       </div>
+      
+      {/* Sticky Bottom Ad - High Visibility */}
+      <StickyAd position="bottom" />
     </main>
   )
 } 

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import AdSpace from '@/components/AdSpace'
+import StickyAd from '@/components/StickyAd'
+import NativeAd from '@/components/NativeAd'
 
 export const metadata: Metadata = {
   title: 'Watermarking Blog - Expert Tips & Guides for Content Protection',
@@ -317,6 +319,9 @@ export default function BlogPage() {
               </div>
             </div>
 
+            {/* Native Ad in Sidebar */}
+            <NativeAd title="Recommended" className="mb-6" />
+
             {/* Popular topics */}
             <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-sm">
               <h3 className="text-xl font-bold text-gray-800 mb-4">Popular Topics</h3>
@@ -339,6 +344,9 @@ export default function BlogPage() {
           <AdSpace position="bottom" format="horizontal" className="mx-auto max-w-4xl" />
         </div>
       </div>
+      
+      {/* Sticky Bottom Ad */}
+      <StickyAd position="bottom" />
     </main>
   )
 }

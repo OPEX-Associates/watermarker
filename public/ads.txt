@@ -1,16 +1,40 @@
 # ads.txt file for ad network verification
 # This file allows advertisers to verify authorized sellers of ad inventory
+# Updated: December 2025
 
 # Google AdSense (keeping for reference)
 google.com, pub-3384158839006881, DIRECT, f08c47fec0942fa0
 
-# Monetag Ad Network
-monetag.com, 9960951, DIRECT
-fenoofaussut.net, 175134, DIRECT
+# Monetag Ad Network - Primary
+monetag.com, 9960349, DIRECT
+grookilteepsou.net, 9960349, DIRECT
 
-# Additional Monetag domains
+# Monetag - Push Notifications & Direct Links
 otieu.com, 9960951, DIRECT
-fpyf8.com, 175134, DIRECT
 
-# Additional networks can be added here as needed
-# Format: domain, account_id, relationship_type, certification_authority_id
+# Monetag - MultiTag & Banner Ads
+iclickcdn.com, 9960349, DIRECT
+
+# Additional Monetag demand sources
+google.com, pub-8804303781498808, RESELLER, f08c47fec0942fa0
+adcolony.com, 1efc6603710003ea, RESELLER, 1ad675c9de6b5176
+advertising.com, 28246, RESELLER
+appnexus.com, 13227, RESELLER
+contextweb.com, 562499, RESELLER
+indexexchange.com, 192410, RESELLER
+openx.com, 540393169, RESELLER, 6a698e2ec38604c6
+pubmatic.com, 159668, RESELLER, 5d62403b186f2ace
+rubiconproject.com, 21434, RESELLER, 0bfd66d529a55807
+smartadserver.com, 4012, RESELLER
+sonobi.com, a416546bf3, RESELLER, d1a215d9eb5aee9e
+spotxchange.com, 285547, RESELLER
+
+# Additional networks for increased fill rate
+33across.com, 0013300001kQj2HAAS, RESELLER, bbea06d9c4d2853c
+adtech.com, 12069, RESELLER
+adyoulike.com, b4bf4fdd9b0b915f746f6747ff432bde, RESELLER
+conversantmedia.com, 100264, RESELLER, 03113cd04947736d
+emxdgt.com, 2009, RESELLER, 1e1d41537f7cad7f
+lkqd.net, 627, RESELLER, 59c49fa9598a0117
+triplelift.com, 11656, RESELLER, 6c33edb13117fd86
+video.unrulymedia.com, 4148429327, RESELLER

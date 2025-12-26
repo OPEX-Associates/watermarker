@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import AdSpace from '@/components/AdSpace'
+import StickyAd from '@/components/StickyAd'
+import NativeAd from '@/components/NativeAd'
 
 export const metadata: Metadata = {
   title: 'User Guide - How to Use SecureWatermark Effectively',
@@ -419,9 +421,17 @@ export default function Guide() {
           </div>
         </div>
 
+        {/* Native Ad */}
+        <div className="mt-8">
+          <NativeAd title="Related Tools & Resources" className="mx-auto max-w-3xl" />
+        </div>
+
         {/* Bottom ad */}
-        <AdSpace position="bottom" format="horizontal" className="mx-auto max-w-3xl" />
+        <AdSpace position="bottom" format="horizontal" className="mx-auto max-w-3xl mt-8" />
       </div>
+      
+      {/* Sticky Bottom Ad */}
+      <StickyAd position="bottom" />
     </main>
   )
 }

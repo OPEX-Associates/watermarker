@@ -68,7 +68,7 @@ export default function RootLayout({
           `}
         </Script>
         
-        {/* Monetag Pop-under Ad */}
+        {/* Monetag Pop-under Ad - High Revenue */}
         <Script id="monetag-popunder" strategy="afterInteractive">
           {`
             (function(d,z,s){
@@ -76,18 +76,56 @@ export default function RootLayout({
               try{
                 (document.body||document.documentElement).appendChild(s)
               }catch(e){}
-            })('otieu.com',9960951,document.createElement('script'))
+            })('grookilteepsou.net',9960349,document.createElement('script'))
           `}
         </Script>
         
-        {/* Monetag Ad Scripts */}
-        <Script
-          src="https://fpyf8.com/88/tag.min.js"
-          data-zone="175134"
-          strategy="afterInteractive"
-          data-cfasync="false"
-          async
-        />
+        {/* Monetag Vignette/Interstitial Ad - Mobile Optimized */}
+        <Script id="monetag-vignette" strategy="afterInteractive">
+          {`
+            (function(d,z,s){
+              s.src='https://'+d+'/401/'+z;
+              try{
+                (document.body||document.documentElement).appendChild(s)
+              }catch(e){}
+            })('grookilteepsou.net',9960349,document.createElement('script'))
+          `}
+        </Script>
+        
+        {/* Monetag Push Notifications - Recurring Revenue */}
+        <Script id="monetag-push" strategy="afterInteractive">
+          {`
+            (function(d,z,s){
+              s.src='https://'+d+'/pfe/current/tag.min.js?z='+z;
+              try{
+                (document.body||document.documentElement).appendChild(s)
+              }catch(e){}
+            })('grookilteepsou.net',9960349,document.createElement('script'))
+          `}
+        </Script>
+        
+        {/* Monetag In-Page Push - Non-Intrusive */}
+        <Script id="monetag-inpage-push" strategy="afterInteractive">
+          {`
+            (function(d,z,s){
+              s.src='https://'+d+'/pfe/current/tag.min.js?z='+z+'&sw=/sw.js';
+              try{
+                (document.body||document.documentElement).appendChild(s)
+              }catch(e){}
+            })('grookilteepsou.net',9960349,document.createElement('script'))
+          `}
+        </Script>
+        
+        {/* Monetag MultiTag - Auto-optimized ads */}
+        <Script id="monetag-multitag" strategy="afterInteractive">
+          {`
+            (function(s,u,z,p){
+              s.src=u;
+              s.setAttribute('data-zone',z);
+              p.appendChild(s);
+            })(document.createElement('script'),'https://iclickcdn.com/tag.min.js',9960349,document.body||document.documentElement)
+          `}
+        </Script>
         
         {/* Monetag Direct Link Integration */}
         <Script id="monetag-direct-link" strategy="afterInteractive">
